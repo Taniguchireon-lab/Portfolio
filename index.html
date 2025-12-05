@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【谷口蓮音】 | Unity ゲーム開発 ポートフォリオ</title>
@@ -161,8 +162,14 @@
         }
 
         @keyframes animatetop {
-            from {top: -300px; opacity: 0}
-            to {top: 0; opacity: 1}
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
         }
 
         .close-btn {
@@ -178,15 +185,17 @@
             text-decoration: none;
             cursor: pointer;
         }
-        
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
             }
+
             .container {
                 margin: 20px auto;
             }
+
             .modal-content {
                 width: 90%;
                 margin: 5% auto;
@@ -194,6 +203,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -208,37 +218,23 @@
         <h2 class="section-title">制作実績</h2>
 
         <div class="projects-grid" id="projects-container">
-            <div class="project-card" data-project-id="1">
-                    <div class="project-image-placeholder">作品1のイメージ</div>
-                    <div class="project-info">
-                        <h3>作品タイトル1：3Dアクションゲーム</h3>
-                        <p>Unity, C#, Shader Graph | 制作期間: 1ヶ月</p>
-                        <p>概要：シンプルな操作で楽しめる3Dアクションゲーム。ライティングとエフェクトに注力。</p>
-                    </div>
-                </div><div class="project-card" data-project-id="2">
-                    <div class="project-image-placeholder">作品2のイメージ</div>
-                    <div class="project-info">
-                        <h3>作品タイトル2：2Dパズルゲーム</h3>
-                        <p>Unity, C#, DOTween | 制作期間: 3週間</p>
-                        <p>概要：ステージクリア型のパズルゲーム。アニメーションとUI/UXに注力。</p>
-                    </div>
-                </div></div>
+            </div>
 
     </div>
 
-    <div id="projectModal" class="modal" style="display: none;">
+    <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">×</span>
-            <h3 id="modal-title">作品タイトル1：3Dアクションゲーム</h3>
-            <p id="modal-tech">使用技術: Unity, C#, Shader Graph</p>
-            <p id="modal-role">役割: プログラマー（個人制作）</p>
+            <h3 id="modal-title"></h3>
+            <p id="modal-tech"></p>
+            <p id="modal-role"></p>
             <hr>
             <h4>プロジェクト概要</h4>
-            <p id="modal-description">プレイヤーは特定のステージで敵を倒し、ゴールを目指します。特にこだわったのは、Unityの物理エンジンを利用したジャンプの挙動と、敵を倒したときのエフェクト処理です。</p>
+            <p id="modal-description"></p>
             <h4>こだわりの点 / 学び</h4>
-            <ul id="modal-points"><li>オブジェクトプーリングによるパフォーマンス向上を実現。</li><li>コルーチンを利用したゲームフロー管理を学習。</li><li>簡単なシェーダー（Shader Graph）を導入し、水面の表現を試行錯誤。</li></ul>
-            <a id="modal-github-link" href="【作品1のGitHubリポジトリURL】" target="_blank" style="margin-top: 15px; display: inline-block;">GitHubリポジトリへ</a>
-            <p id="modal-video-link" style="margin-top: 10px;"><a href="【作品1のプレイ動画/デモのURL】" target="_blank">デモ動画を見る</a></p>
+            <ul id="modal-points"></ul>
+            <a id="modal-github-link" href="#" target="_blank" style="margin-top: 15px;">GitHubリポジトリへ</a>
+            <p id="modal-video-link" style="margin-top: 10px;"></p>
         </div>
     </div>
 
@@ -295,7 +291,7 @@
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.setAttribute('data-project-id', project.id);
-                
+
                 // HTML構造
                 card.innerHTML = `
                     <div class="project-image-placeholder">${project.image}</div>
@@ -306,9 +302,9 @@
                     </div>
                 `;
 
-                // クリックイベントリスナーを追加
+                // 🔴 修正点 2: クリックイベントリスナーを追加（前回修正済みだが再確認）
                 card.addEventListener('click', () => openModal(project));
-                
+
                 container.appendChild(card);
             });
         }
@@ -342,8 +338,8 @@
             } else {
                 videoLink.textContent = '※動画/デモはありません';
             }
-            
-            modal.style.display = 'block';
+
+            modal.style.display = 'block'; // モーダルを表示
         }
 
         // モーダルを閉じる
@@ -361,7 +357,5 @@
         // ページロード時に実行
         createProjectCards();
     </script>
-
-
-
-</body></html>
+</body>
+</html>
