@@ -194,3 +194,172 @@
 
             .container {
                 margin: 20px auto;
+            }
+
+            .modal-content {
+                width: 90%;
+                margin: 5% auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>【谷口蓮音】</h1>
+        <p>2年制大学生・1年 | Unityゲーム開発ポートフォリオ</p>
+        <a href="【あなたのGitHubプロフィールURL】" class="btn-github" target="_blank">
+            <span style="margin-right: 5px;">★</span> GitHubを見る
+        </a>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">制作実績</h2>
+
+        <div class="projects-grid" id="projects-container">
+            </div>
+
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-tech"></p>
+            <p id="modal-role"></p>
+            <hr>
+            <h4>プロジェクト概要</h4>
+            <p id="modal-description"></p>
+            <h4>こだわりの点 / 学び</h4>
+            <ul id="modal-points"></ul>
+            <a id="modal-github-link" href="#" target="_blank" style="margin-top: 15px;">GitHubリポジトリへ</a>
+            <p id="modal-video-link" style="margin-top: 10px;"></p>
+        </div>
+    </div>
+
+    <footer>
+        © FDA2025 【谷口　蓮音】. All rights reserved.
+    </footer>
+
+    <script>
+        const projects = [
+            {
+                id: 1,
+                title: "作品タイトル1：3Dアクションゲーム",
+                tech: "Unity, C#, Shader Graph",
+                duration: "制作期間: 1ヶ月",
+                shortDesc: "シンプルな操作で楽しめる3Dアクションゲーム。ライティングとエフェクトに注力。",
+                image: "作品1のイメージ",
+                description: "プレイヤーは特定のステージで敵を倒し、ゴールを目指します。特にこだわったのは、UnityのAnimtionを利用したジャンプの挙動と、敵を倒したときのエフェクト処理です。",
+                role: "役割: プログラマー（個人制作）",
+                points: [
+                    "オブジェクトプーリングによるパフォーマンス向上を実現。",
+                    "コルーチンを利用したゲームフロー管理を学習。",
+                    "簡単なシェーダー（Shader Graph）を導入し、火山や溶岩の表現を試行錯誤。"
+                ],
+                github: "【作品1のGitHubリポジトリURL】",
+                video: "【作品1のプレイ動画/デモのURL】"
+            },
+            {
+                id: 2,
+                title: "作品タイトル2：2Dパズルゲーム",
+                tech: "Unity, C#, DOTween",
+                duration: "制作期間: 3週間",
+                shortDesc: "ステージクリア型のパズルゲーム。アニメーションとUI/UXに注力。",
+                image: "作品2のイメージ",
+                description: "カラフルなタイルを一面同じ色に揃えるパズルゲームです。ユーザーが直感的に操作できるUI設計と、心地よい操作感のためのアニメーション調整に時間をかけました。",
+                role: "役割: プログラマー（個人制作）",
+                points: [
+                    "パズルロジックを効率的に管理するクラス構造を設計。",
+                    "DOTweenを用いて、ブロック移動やUI遷移のアニメーションをスムーズに実装。",
+                    "Git/GitHubを用いた開発経験。"
+                ],
+                github: "【作品2のGitHubリポジトリURL】",
+                video: ""
+            }
+            // 作品を増やす場合は、この配列にオブジェクトを追加してください
+        ];
+
+        const container = document.getElementById('projects-container');
+        const modal = document.getElementById('projectModal');
+        const closeBtn = document.getElementsByClassName('close-btn')[0];
+
+        // 作品カードの生成
+        function createProjectCards() {
+            // 🔴 既存の要素をクリア（二重生成を防ぐため）
+            container.innerHTML = '';
+            
+            // projects配列からカードを生成・追加 (現在2枚)
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.setAttribute('data-project-id', project.id);
+
+                // HTML構造
+                card.innerHTML = `
+                    <div class="project-image-placeholder">${project.image}</div>
+                    <div class="project-info">
+                        <h3>${project.title}</h3>
+                        <p>${project.tech} | ${project.duration}</p>
+                        <p>概要：${project.shortDesc}</p>
+                    </div>
+                `;
+
+                // クリックイベントリスナーを追加（モーダル表示）
+                card.addEventListener('click', () => openModal(project));
+
+                container.appendChild(card);
+            });
+        }
+
+        // モーダルを開く
+        function openModal(project) {
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-tech').textContent = `使用技術: ${project.tech}`;
+            document.getElementById('modal-role').textContent = project.role;
+            document.getElementById('modal-description').textContent = project.description;
+
+            const pointsList = document.getElementById('modal-points');
+            pointsList.innerHTML = '';
+            project.points.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                pointsList.appendChild(li);
+            });
+
+            const githubLink = document.getElementById('modal-github-link');
+            if (project.github) {
+                githubLink.href = project.github;
+                githubLink.style.display = 'inline-block';
+            } else {
+                githubLink.style.display = 'none';
+            }
+
+            const videoLink = document.getElementById('modal-video-link');
+            if (project.video) {
+                videoLink.innerHTML = `<a href="${project.video}" target="_blank">デモ動画を見る</a>`;
+            } else {
+                videoLink.textContent = '※動画/デモはありません';
+            }
+
+            modal.style.display = 'block'; // モーダルを表示
+        }
+
+        // モーダルを閉じる
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // モーダル外クリックで閉じる
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // ページロード時に実行
+        createProjectCards();
+    </script>
+</body>
+</html>
