@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【あなたの名前】 | Unity ゲーム開発 ポートフォリオ</title>
+    <title>【谷口蓮音】 | Unity ゲーム開発 ポートフォリオ</title>
     <style>
         /* ------------------------------------- */
         /* CSS スタイル */
@@ -198,10 +197,10 @@
 <body>
 
     <header>
-        <h1>【あなたの名前】</h1>
-        <p>2年制大学生 | Unityゲーム開発ポートフォリオ</p>
+        <h1>【谷口蓮音】</h1>
+        <p>2年制大学生・1年 | Unityゲーム開発ポートフォリオ</p>
         <a href="【あなたのGitHubプロフィールURL】" class="btn-github" target="_blank">
-            <span style="margin-right: 5px;">&#9733;</span> GitHubを見る
+            <span style="margin-right: 5px;">★</span> GitHubを見る
         </a>
     </header>
 
@@ -209,13 +208,27 @@
         <h2 class="section-title">制作実績</h2>
 
         <div class="projects-grid" id="projects-container">
-            </div>
+            <div class="project-card" data-project-id="1">
+                    <div class="project-image-placeholder">作品1のイメージ</div>
+                    <div class="project-info">
+                        <h3>作品タイトル1：3Dアクションゲーム</h3>
+                        <p>Unity, C#, Shader Graph | 制作期間: 1ヶ月</p>
+                        <p>概要：シンプルな操作で楽しめる3Dアクションゲーム。ライティングとエフェクトに注力。</p>
+                    </div>
+                </div><div class="project-card" data-project-id="2">
+                    <div class="project-image-placeholder">作品2のイメージ</div>
+                    <div class="project-info">
+                        <h3>作品タイトル2：2Dパズルゲーム</h3>
+                        <p>Unity, C#, DOTween | 制作期間: 3週間</p>
+                        <p>概要：ステージクリア型のパズルゲーム。アニメーションとUI/UXに注力。</p>
+                    </div>
+                </div></div>
 
     </div>
 
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn">×</span>
             <h3 id="modal-title"></h3>
             <p id="modal-tech"></p>
             <p id="modal-role"></p>
@@ -230,7 +243,7 @@
     </div>
 
     <footer>
-        &copy; 2024 【あなたの名前】. All rights reserved.
+        © FDA2025 【谷口　蓮音】. All rights reserved.
     </footer>
 
     <script>
@@ -240,14 +253,14 @@
                 title: "作品タイトル1：3Dアクションゲーム",
                 tech: "Unity, C#, Shader Graph",
                 duration: "制作期間: 1ヶ月",
-                shortDesc: "シンプルな操作で楽しめる3Dアクションゲーム。物理演算とエフェクトに注力。",
+                shortDesc: "シンプルな操作で楽しめる3Dアクションゲーム。ライティングとエフェクトに注力。",
                 image: "作品1のイメージ", // 画像のURLがあればここに
-                description: "プレイヤーは特定のステージで敵を倒し、ゴールを目指します。特にこだわったのは、Unityの物理エンジンを利用したジャンプの挙動と、敵を倒したときのエフェクト処理です。",
+                description: "プレイヤーは特定のステージで敵を倒し、ゴールを目指します。特にこだわったのは、UnityのAnimtionを利用したジャンプの挙動と、敵を倒したときのエフェクト処理です。",
                 role: "役割: プログラマー（個人制作）",
                 points: [
                     "オブジェクトプーリングによるパフォーマンス向上を実現。",
                     "コルーチンを利用したゲームフロー管理を学習。",
-                    "簡単なシェーダー（Shader Graph）を導入し、水面の表現を試行錯誤。"
+                    "簡単なシェーダー（Shader Graph）を導入し、火山や溶岩の表現を試行錯誤。"
                 ],
                 github: "【作品1のGitHubリポジトリURL】",
                 video: "【作品1のプレイ動画/デモのURL】" // YouTubeなど
@@ -259,12 +272,12 @@
                 duration: "制作期間: 3週間",
                 shortDesc: "ステージクリア型のパズルゲーム。アニメーションとUI/UXに注力。",
                 image: "作品2のイメージ",
-                description: "ブロックを移動させて特定の形にするパズルゲームです。ユーザーが直感的に操作できるUI設計と、心地よい操作感のためのアニメーション調整に時間をかけました。",
-                role: "役割: プランナー兼プログラマー（チーム制作）",
+                description: "カラフルなタイルを一面同じ色に揃えるパズルゲームです。ユーザーが直感的に操作できるUI設計と、心地よい操作感のためのアニメーション調整に時間をかけました。",
+                role: "役割: プログラマー（個人制作）",
                 points: [
                     "パズルロジックを効率的に管理するクラス構造を設計。",
                     "DOTweenを用いて、ブロック移動やUI遷移のアニメーションをスムーズに実装。",
-                    "チームメンバーとのGit/GitHubを用いた共同開発フローを経験。"
+                    "Git/GitHubを用いた開発経験。"
                 ],
                 github: "【作品2のGitHubリポジトリURL】",
                 video: ""
@@ -349,5 +362,6 @@
         createProjectCards();
     </script>
 
-</body>
-</html>
+
+
+</body></html>
