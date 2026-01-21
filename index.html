@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>谷口 蓮音 | Unityゲーム開発ポートフォリオ</title>
   <style>
+    :root {
+      --main-blue: #2a5298;
+      --status-orange: #e67e22; /* ステータス用カラー */
+    }
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -38,12 +43,37 @@
     h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
-      border-left: 6px solid #2a5298;
+      border-left: 6px solid var(--main-blue);
       padding-left: 12px;
     }
 
+    .profile {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center; /* ボタン配置のため中央寄せ */
+    }
+    
     .profile p {
       margin-bottom: 15px;
+      text-align: left; /* 文章は左寄せ */
+    }
+
+    /* GitHubボタンの共通スタイル */
+    .btn-github-profile {
+      display: inline-block;
+      background-color: #333;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+    .btn-github-profile:hover {
+      background-color: #555;
     }
 
     .works {
@@ -55,13 +85,48 @@
     .work {
       background-color: #fff;
       border-radius: 10px;
-      padding: 25px;
+      overflow: hidden; /* 画像角丸のため */
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 画像エリア */
+    .work-image-area {
+      width: 100%;
+      height: 250px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    .work-image-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .work-content {
+      padding: 25px;
     }
 
     .work h3 {
       font-size: 1.4rem;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    /* ステータスバッジ */
+    .status-badge {
+      display: inline-block;
+      background-color: var(--status-orange);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 10px;
+      font-weight: bold;
     }
 
     .work .meta {
@@ -76,17 +141,19 @@
 
     .work ul {
       margin-left: 20px;
+      margin-bottom: 15px;
     }
 
-    .work a {
+    .work-links a {
       display: inline-block;
-      margin-top: 10px;
-      color: #2a5298;
+      margin-right: 15px;
+      margin-top: 5px;
+      color: var(--main-blue);
       text-decoration: none;
       font-weight: bold;
     }
 
-    .work a:hover {
+    .work-links a:hover {
       text-decoration: underline;
     }
 
@@ -129,6 +196,10 @@
       GitHubを用いたバージョン管理にも取り組んでおり、
       今後はより規模の大きな開発にも挑戦していきたいと考えています。
     </p>
+    
+    <a href="https://github.com/Taniguchireon-lab" target="_blank" class="btn-github-profile">
+      ★ GitHubアカウントを見る
+    </a>
   </section>
 
   <section>
@@ -137,47 +208,55 @@
     <div class="works">
 
       <div class="work">
-        <h3>ai-mini-game-1（クリック型ミニゲーム）</h3>
-        <div class="meta">
-          使用技術：HTML / JavaScript ｜ 個人制作
+        <div class="work-image-area">
+          <span>画像準備中（開発者用：imgタグを有効にしてください）</span>
         </div>
-        <p>
-          画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。
-          基本的なゲームループの理解と、分かりやすい挙動の実装を目的として制作しました。
-        </p>
-        <ul>
-          <li>クリック操作に応じたスコア管理</li>
-          <li>シンプルで直感的なゲーム設計</li>
-          <li>小規模でも完結した作品制作を意識</li>
-        </ul>
-        <a href="https://github.com/Taniguchireon-lab/ai-mini-game-1" target="_blank">
-          ▶ GitHubリポジトリを見る
-        </a><br>
-        <a href="https://clickgame-ai-01.netlify.app" target="_blank">
-          ▶ ゲームをプレイする
-        </a>
+        
+        <div class="work-content">
+          <h3>ai-mini-game-1（クリック型ミニゲーム）</h3>
+          <span class="status-badge">完成</span> <div class="meta">
+            使用技術：HTML / JavaScript ｜ 個人制作
+          </div>
+          <p>
+            画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。
+            基本的なゲームループの理解と、分かりやすい挙動の実装を目的として制作しました。
+          </p>
+          <ul>
+            <li>クリック操作に応じたスコア管理</li>
+            <li>シンプルで直感的なゲーム設計</li>
+            <li>小規模でも完結した作品制作を意識</li>
+          </ul>
+          <div class="work-links">
+            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-1" target="_blank">▶ GitHubリポジトリを見る</a>
+            <a href="https://clickgame-ai-01.netlify.app" target="_blank">▶ ゲームをプレイする</a>
+          </div>
+        </div>
       </div>
 
       <div class="work">
-        <h3>ai-mini-game-2（音楽リズムゲーム）</h3>
-        <div class="meta">
-          使用技術：HTML / JavaScript ｜ 個人制作
+        <div class="work-image-area">
+          <span>画像準備中</span>
         </div>
-        <p>
-          ゲームオーバーのない設計で、スコアを伸ばし続けられる音楽ゲームです。
-          ミスをしてもプレイが止まらないため、リズムに集中できる体験を目指しました。
-        </p>
-        <ul>
-          <li>複数キー入力によるリズム判定</li>
-          <li>スピードやサウンド変更機能の実装</li>
-          <li>最後まで遊び続けられる設計思想</li>
-        </ul>
-        <a href="https://github.com/Taniguchireon-lab/ai-mini-game-2" target="_blank">
-          ▶ GitHubリポジトリを見る
-        </a><br>
-        <a href="https://music-game-ai-02.netlify.app" target="_blank">
-          ▶ ゲームをプレイする
-        </a>
+
+        <div class="work-content">
+          <h3>ai-mini-game-2（音楽リズムゲーム）</h3>
+          <span class="status-badge">完成</span> <div class="meta">
+            使用技術：HTML / JavaScript ｜ 個人制作
+          </div>
+          <p>
+            ゲームオーバーのない設計で、スコアを伸ばし続けられる音楽ゲームです。
+            ミスをしてもプレイが止まらないため、リズムに集中できる体験を目指しました。
+          </p>
+          <ul>
+            <li>複数キー入力によるリズム判定</li>
+            <li>スピードやサウンド変更機能の実装</li>
+            <li>最後まで遊び続けられる設計思想</li>
+          </ul>
+          <div class="work-links">
+            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-2" target="_blank">▶ GitHubリポジトリを見る</a>
+            <a href="https://music-game-ai-02.netlify.app" target="_blank">▶ ゲームをプレイする</a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -190,4 +269,5 @@
     </p>
   </footer>
 
-</body></html>
+</body>
+</html>
