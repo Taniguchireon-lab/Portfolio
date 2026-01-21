@@ -56,14 +56,14 @@
       color: var(--main-blue);
     }
 
-    /* 自己紹介セクション：左寄せ・枠あり */
+    /* 自己紹介セクション */
     .profile {
       background-color: #fff;
       padding: 35px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       border: 1px solid #eef2f7;
-      border-top: 4px solid var(--main-blue); /* 上部にアクセント */
+      border-top: 4px solid var(--main-blue);
     }
 
     .profile h2 {
@@ -75,7 +75,7 @@
 
     .profile p {
       margin-bottom: 18px;
-      text-align: left; /* 左寄せ */
+      text-align: left;
       font-size: 1rem;
     }
 
@@ -113,11 +113,10 @@
       border: 1px solid #eee;
     }
 
-    /* 画像エリア：404対策・非表示枠の防止 */
     .work-image-area {
       width: 100%;
       height: 240px;
-      background-color: #eaeff5; /* 画像がない時の背景色 */
+      background-color: #eaeff5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -130,7 +129,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* 画像が読み込めない時に枠だけ出ないように設定 */
       display: block; 
     }
 
@@ -242,9 +240,54 @@
 
       <div class="work">
         <div class="work-image-area">
-          <span>Coming Soon (Image Preview)</span>
+          <span>3Dアクションゲーム スクリーンショット</span>
         </div>
-        
+        <div class="work-content">
+          <h3>3Dアクションゲーム <span class="status-badge">完成</span></h3>
+          <div class="meta">使用技術：Unity / C# / Shader Graph ｜ 制作期間：1ヶ月</div>
+          <p>
+            シンプルな操作で楽しめる3Dアクションゲーム。プレイヤーは特定のステージで敵を倒し、ゴールを目指します。
+            UnityのAnimationを利用したジャンプの挙動と、敵を倒したときのエフェクト処理に特に注力しました。
+          </p>
+          <ul>
+            <li>オブジェクトプーリングによるパフォーマンス向上を実現</li>
+            <li>コルーチンを利用したゲームフロー管理を学習・実装</li>
+            <li>Shader Graphによる火山や溶岩の環境表現の試行錯誤</li>
+          </ul>
+          <div class="work-links">
+            <a href="【作品1のGitHubリポジトリURL】" target="_blank">GitHub</a>
+            <a href="【作品1のデモURL】" target="_blank">Demo Video</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <div class="work-image-area">
+          <span>2Dパズルゲーム スクリーンショット</span>
+        </div>
+        <div class="work-content">
+          <h3>2Dパズルゲーム <span class="status-badge">完成</span></h3>
+          <div class="meta">使用技術：Unity / C# / DOTween ｜ 制作期間：3週間</div>
+          <p>
+            タイルを一面同じ色に揃える、ステージクリア型のパズルゲームです。
+            直感的なUI設計と、心地よい操作感（ゲームフィール）のためのアニメーション調整に時間をかけました。
+          </p>
+          <ul>
+            <li>パズルロジックを効率的に管理するクラス構造の設計</li>
+            <li>DOTweenを用いたスムーズなブロック移動とUI演出の実装</li>
+            <li>Git/GitHubを用いた個人開発のバージョン管理</li>
+          </ul>
+          <div class="work-links">
+            <a href="【作品2のGitHubリポジトリURL】" target="_blank">GitHub</a>
+            <a href="【作品2のデモURL】" target="_blank">Demo Video</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <div class="work-image-area">
+          <span>ai-mini-game-1 イメージ</span>
+        </div>
         <div class="work-content">
           <h3>ai-mini-game-1 <span class="status-badge">完成</span></h3>
           <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
@@ -266,15 +309,14 @@
 
       <div class="work">
         <div class="work-image-area">
-          <span>Coming Soon (Image Preview)</span>
+          <span>ai-mini-game-2 イメージ</span>
         </div>
-
         <div class="work-content">
           <h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
           <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
           <p>
-            ゲームオーバーのない設計で、リズムに合わせてスコアを伸ばし続けられる音楽ゲームです。
-            ミスによるストレスを抑え、プレイの継続性を重視した体験を目指しました。
+            リズムに合わせてスコアを伸ばし続けられる、ゲームオーバーのない音楽ゲームです。
+            プレイの継続性と、入力判定のロジック構築に焦点を当てて制作しました。
           </p>
           <ul>
             <li>複数キーの同時入力・判定ロジックの実装</li>
