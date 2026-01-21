@@ -7,150 +7,184 @@
   <style>
     :root {
       --main-blue: #2a5298;
-      --status-orange: #e67e22; /* ステータス用カラー */
-    }
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f5f6f8;
-      color: #333;
-      line-height: 1.8;
+      --bg-light: #f8fafc;
+      --text-main: #333;
+      --text-sub: #666;
+      --status-orange: #e67e22;
     }
 
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.7;
+      word-wrap: break-word;
+    }
+
+    /* ヘッダー */
     header {
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: #fff;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
     header p {
       font-size: 1.1rem;
       opacity: 0.9;
+      font-weight: 300;
     }
 
     section {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 50px auto;
       padding: 0 20px;
     }
 
     h2 {
       font-size: 1.8rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       border-left: 6px solid var(--main-blue);
-      padding-left: 12px;
+      padding-left: 15px;
+      color: var(--main-blue);
     }
 
+    /* 自己紹介セクション：左寄せ・枠あり */
     .profile {
       background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      text-align: center; /* ボタン配置のため中央寄せ */
-    }
-    
-    .profile p {
-      margin-bottom: 15px;
-      text-align: left; /* 文章は左寄せ */
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2f7;
+      border-top: 4px solid var(--main-blue); /* 上部にアクセント */
     }
 
-    /* GitHubボタンの共通スタイル */
+    .profile h2 {
+      border-left: none;
+      padding-left: 0;
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .profile p {
+      margin-bottom: 18px;
+      text-align: left; /* 左寄せ */
+      font-size: 1rem;
+    }
+
+    /* GitHubボタン */
     .btn-github-profile {
-      display: inline-block;
-      background-color: #333;
-      color: white;
+      display: inline-flex;
+      align-items: center;
+      background-color: #24292e;
+      color: white !important;
       padding: 12px 24px;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
       margin-top: 10px;
     }
+
     .btn-github-profile:hover {
-      background-color: #555;
+      background-color: #444;
+      transform: translateY(-2px);
     }
 
+    /* 制作実績 */
     .works {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 35px;
     }
 
     .work {
       background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden; /* 画像角丸のため */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid #eee;
     }
 
-    /* 画像エリア */
+    /* 画像エリア：404対策・非表示枠の防止 */
     .work-image-area {
       width: 100%;
-      height: 250px;
-      background-color: #ddd;
+      height: 240px;
+      background-color: #eaeff5; /* 画像がない時の背景色 */
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #777;
+      color: #94a3b8;
       font-size: 0.9rem;
+      position: relative;
     }
+
     .work-image-area img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* 画像が読み込めない時に枠だけ出ないように設定 */
+      display: block; 
     }
 
     .work-content {
-      padding: 25px;
+      padding: 30px;
     }
 
     .work h3 {
-      font-size: 1.4rem;
-      margin-bottom: 5px;
-      display: inline-block;
+      font-size: 1.5rem;
+      margin: 0 0 10px 0;
+      color: var(--main-blue);
     }
 
-    /* ステータスバッジ */
     .status-badge {
       display: inline-block;
       background-color: var(--status-orange);
       color: #fff;
       font-size: 0.75rem;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 4px;
       vertical-align: middle;
       margin-left: 10px;
       font-weight: bold;
     }
 
-    .work .meta {
+    .meta {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-sub);
       margin-bottom: 15px;
+      background: #f1f5f9;
+      padding: 5px 12px;
+      border-radius: 4px;
+      display: inline-block;
     }
 
     .work p {
-      margin-bottom: 10px;
+      margin: 15px 0;
+      font-size: 0.95rem;
     }
 
     .work ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
+      margin: 0 0 20px 20px;
+      padding: 0;
+      font-size: 0.9rem;
+      color: #555;
     }
 
     .work-links a {
       display: inline-block;
-      margin-right: 15px;
-      margin-top: 5px;
+      margin-right: 20px;
       color: var(--main-blue);
       text-decoration: none;
       font-weight: bold;
+      font-size: 0.95rem;
     }
 
     .work-links a:hover {
@@ -159,19 +193,17 @@
 
     footer {
       text-align: center;
-      padding: 30px 10px;
-      background-color: #222;
-      color: #aaa;
-      font-size: 0.9rem;
+      padding: 40px 10px;
+      background-color: #1e293b;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      margin-top: 60px;
     }
 
     footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    footer a:hover {
       color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
     }
   </style>
 </head>
@@ -182,79 +214,76 @@
     <p>専門学校 ゲームプログラマー志望｜Unityゲーム開発ポートフォリオ</p>
   </header>
 
-  <section class="profile">
-    <h2>自己紹介</h2>
-    <p>
-      専門学校に在籍し、Unityを用いたゲーム開発を中心に学習しています。
-      個人制作を通して、ゲームロジックの設計からUI演出、操作感の調整まで一貫して取り組んできました。
-    </p>
-    <p>
-      「遊びやすさ」「分かりやすさ」を意識した設計を大切にし、
-      小規模な作品でも完成度を高めることを目標に制作しています。
-    </p>
-    <p>
-      GitHubを用いたバージョン管理にも取り組んでおり、
-      今後はより規模の大きな開発にも挑戦していきたいと考えています。
-    </p>
-    
-    <a href="https://github.com/Taniguchireon-lab" target="_blank" class="btn-github-profile">
-      ★ GitHubアカウントを見る
-    </a>
+  <section>
+    <div class="profile">
+      <h2>About Me</h2>
+      <p>
+        専門学校に在籍し、Unityを用いたゲーム開発を中心に学習しています。
+        個人制作を通して、ゲームロジックの設計からUI演出、操作感の調整まで一貫して取り組んできました。
+      </p>
+      <p>
+        「遊びやすさ」「分かりやすさ」を意識した設計を大切にし、
+        小規模な作品でも完成度を高めることを目標に制作しています。
+      </p>
+      <p>
+        GitHubを用いたバージョン管理にも取り組んでおり、
+        現在はチーム開発やより高度な最適化手法についても学んでいます。
+      </p>
+      
+      <a href="https://github.com/Taniguchireon-lab" target="_blank" class="btn-github-profile">
+        GitHubアカウントを確認する
+      </a>
+    </div>
   </section>
 
   <section>
-    <h2>制作実績</h2>
-
+    <h2>Works</h2>
     <div class="works">
 
       <div class="work">
         <div class="work-image-area">
-          <span>画像準備中（開発者用：imgタグを有効にしてください）</span>
+          <span>Coming Soon (Image Preview)</span>
         </div>
         
         <div class="work-content">
-          <h3>ai-mini-game-1（クリック型ミニゲーム）</h3>
-          <span class="status-badge">完成</span> <div class="meta">
-            使用技術：HTML / JavaScript ｜ 個人制作
-          </div>
+          <h3>ai-mini-game-1 <span class="status-badge">完成</span></h3>
+          <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
           <p>
             画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。
             基本的なゲームループの理解と、分かりやすい挙動の実装を目的として制作しました。
           </p>
           <ul>
-            <li>クリック操作に応じたスコア管理</li>
-            <li>シンプルで直感的なゲーム設計</li>
-            <li>小規模でも完結した作品制作を意識</li>
+            <li>クリック操作に応じた直感的なスコア更新</li>
+            <li>状態管理によるゲーム進行の制御</li>
+            <li>Netlifyを使用した公開環境の構築</li>
           </ul>
           <div class="work-links">
-            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-1" target="_blank">▶ GitHubリポジトリを見る</a>
-            <a href="https://clickgame-ai-01.netlify.app" target="_blank">▶ ゲームをプレイする</a>
+            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-1" target="_blank">GitHub</a>
+            <a href="https://clickgame-ai-01.netlify.app" target="_blank">Demo Play</a>
           </div>
         </div>
       </div>
 
       <div class="work">
         <div class="work-image-area">
-          <span>画像準備中</span>
+          <span>Coming Soon (Image Preview)</span>
         </div>
 
         <div class="work-content">
-          <h3>ai-mini-game-2（音楽リズムゲーム）</h3>
-          <span class="status-badge">完成</span> <div class="meta">
-            使用技術：HTML / JavaScript ｜ 個人制作
-          </div>
+          <h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
+          <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
           <p>
-            ゲームオーバーのない設計で、スコアを伸ばし続けられる音楽ゲームです。
-            ミスをしてもプレイが止まらないため、リズムに集中できる体験を目指しました。
+            ゲームオーバーのない設計で、リズムに合わせてスコアを伸ばし続けられる音楽ゲームです。
+            ミスによるストレスを抑え、プレイの継続性を重視した体験を目指しました。
           </p>
           <ul>
-            <li>複数キー入力によるリズム判定</li>
-            <li>スピードやサウンド変更機能の実装</li>
-            <li>最後まで遊び続けられる設計思想</li>
+            <li>複数キーの同時入力・判定ロジックの実装</li>
+            <li>BGMとノーツの同期調整</li>
+            <li>設定変更機能（スピード調整等）の実装</li>
           </ul>
           <div class="work-links">
-            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-2" target="_blank">▶ GitHubリポジトリを見る</a>
-            <a href="https://music-game-ai-02.netlify.app" target="_blank">▶ ゲームをプレイする</a>
+            <a href="https://github.com/Taniguchireon-lab/ai-mini-game-2" target="_blank">GitHub</a>
+            <a href="https://music-game-ai-02.netlify.app" target="_blank">Demo Play</a>
           </div>
         </div>
       </div>
@@ -264,7 +293,7 @@
 
   <footer>
     <p>
-      © 2026 谷口 蓮音 |
+      © 2026 Ren Taniguchi | 
       <a href="https://github.com/Taniguchireon-lab" target="_blank">GitHub</a>
     </p>
   </footer>
