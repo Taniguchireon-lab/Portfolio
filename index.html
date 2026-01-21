@@ -1,365 +1,189 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【谷口蓮音】 | Unity ポートフォリオ</title>
-    <style>
-        /* ------------------------------------- */
-        /* CSS スタイル (変更なし) */
-        /* ------------------------------------- */
-        :root {
-            --main-color: #3498db; /* メインカラー（青） */
-            --bg-color: #f4f4f9; /* 背景色 */
-            --card-bg-color: #ffffff; /* カードの背景色 */
-            --text-color: #333333; /* 文字色 */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>谷口 蓮音 | Unityゲーム開発ポートフォリオ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f6f8;
+      color: #333;
+      line-height: 1.8;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-        header {
-            background-color: var(--main-color);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
 
-        header p {
-            margin-top: 5px;
-            font-size: 1.1em;
-        }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-left: 6px solid #2a5298;
+      padding-left: 12px;
+    }
 
-        /* 作品セクション */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
+    .profile p {
+      margin-bottom: 15px;
+    }
 
-        .project-card {
-            background-color: var(--card-bg-color);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
-        }
+    .works {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+    .work {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
 
-        .project-image-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            color: #555;
-            overflow: hidden;
-        }
+    .work h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
 
-        .project-info {
-            padding: 15px;
-        }
+    .work .meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
 
-        .project-info h3 {
-            color: var(--main-color);
-            margin-top: 0;
-            font-size: 1.5em;
-        }
+    .work p {
+      margin-bottom: 10px;
+    }
 
-        .project-info p {
-            font-size: 0.9em;
-            color: #666;
-        }
+    .work ul {
+      margin-left: 20px;
+    }
 
-        /* リンクボタン */
-        .btn-github {
-            display: inline-block;
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
+    .work a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .btn-github:hover {
-            background-color: #555;
-        }
+    .work a:hover {
+      text-decoration: underline;
+    }
 
-        /* セクションタイトル */
-        .section-title {
-            text-align: center;
-            font-size: 2em;
-            color: #333;
-            border-bottom: 3px solid var(--main-color);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 30px;
-        }
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #222;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
 
-        /* フッター */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #333;
-            color: white;
-            margin-top: 50px;
-            font-size: 0.9em;
-        }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
 
-        /* モーダル (詳細表示用) */
-        .modal {
-            display: none; /* 初期状態では非表示 */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation-name: animatetop;
-            animation-duration: 0.4s
-        }
-
-        @keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .container {
-                margin: 20px auto;
-            }
-
-            .modal-content {
-                width: 90%;
-                margin: 5% auto;
-            }
-        }
-    </style>
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>【谷口蓮音】</h1>
-        <p>2年制大学生・1年 | Unityゲーム開発ポートフォリオ</p>
-        <a href="【あなたのGitHubプロフィールURL】" class="btn-github" target="_blank">
-            <span style="margin-right: 5px;">★</span> GitHubを見る
-        </a>
-    </header>
+  <header>
+    <h1>谷口 蓮音</h1>
+    <p>専門学校 ゲームプログラマー志望｜Unityゲーム開発ポートフォリオ</p>
+  </header>
 
-    <div class="container">
-        <h2 class="section-title">制作実績</h2>
+  <section class="profile">
+    <h2>自己紹介</h2>
+    <p>
+      専門学校に在籍し、Unityを用いたゲーム開発を中心に学習しています。
+      個人制作を通して、ゲームロジックの設計からUI演出、操作感の調整まで一貫して取り組んできました。
+    </p>
+    <p>
+      「遊びやすさ」「分かりやすさ」を意識した設計を大切にし、
+      小規模な作品でも完成度を高めることを目標に制作しています。
+    </p>
+    <p>
+      GitHubを用いたバージョン管理にも取り組んでおり、
+      今後はより規模の大きな開発にも挑戦していきたいと考えています。
+    </p>
+  </section>
 
-        <div class="projects-grid" id="projects-container">
-            </div>
+  <section>
+    <h2>制作実績</h2>
 
-    </div>
+    <div class="works">
 
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">×</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-tech"></p>
-            <p id="modal-role"></p>
-            <hr>
-            <h4>プロジェクト概要</h4>
-            <p id="modal-description"></p>
-            <h4>こだわりの点 / 学び</h4>
-            <ul id="modal-points"></ul>
-            <a id="modal-github-link" href="#" target="_blank" style="margin-top: 15px;">GitHubリポジトリへ</a>
-            <p id="modal-video-link" style="margin-top: 10px;"></p>
+      <div class="work">
+        <h3>ai-mini-game-1（クリック型ミニゲーム）</h3>
+        <div class="meta">
+          使用技術：HTML / JavaScript ｜ 個人制作
         </div>
+        <p>
+          画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。
+          基本的なゲームループの理解と、分かりやすい挙動の実装を目的として制作しました。
+        </p>
+        <ul>
+          <li>クリック操作に応じたスコア管理</li>
+          <li>シンプルで直感的なゲーム設計</li>
+          <li>小規模でも完結した作品制作を意識</li>
+        </ul>
+        <a href="https://github.com/Taniguchireon-lab/ai-mini-game-1" target="_blank">
+          ▶ GitHubリポジトリを見る
+        </a>
+      </div>
+
+      <div class="work">
+        <h3>ai-mini-game-2（音楽リズムゲーム）</h3>
+        <div class="meta">
+          使用技術：HTML / JavaScript ｜ 個人制作
+        </div>
+        <p>
+          ゲームオーバーのない設計で、スコアを伸ばし続けられる音楽ゲームです。
+          ミスをしてもプレイが止まらないため、リズムに集中できる体験を目指しました。
+        </p>
+        <ul>
+          <li>複数キー入力によるリズム判定</li>
+          <li>スピードやサウンド変更機能の実装</li>
+          <li>最後まで遊び続けられる設計思想</li>
+        </ul>
+        <a href="https://github.com/Taniguchireon-lab/ai-mini-game-2" target="_blank">
+          ▶ GitHubリポジトリを見る
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <footer>
-        © FDA2025 【谷口　蓮音】. All rights reserved.
-    </footer>
+  <footer>
+    <p>
+      © 2026 谷口 蓮音 |
+      <a href="https://github.com/Taniguchireon-lab" target="_blank">GitHub</a>
+    </p>
+  </footer>
 
-    <script>
-        const projects = [
-            {
-                id: 1,
-                title: "作品タイトル1：3Dアクションゲーム",
-                tech: "Unity, C#, Shader Graph",
-                duration: "制作期間: 1ヶ月",
-                shortDesc: "シンプルな操作で楽しめる3Dアクションゲーム。ライティングとエフェクトに注力。",
-                image: "作品1のイメージ",
-                description: "プレイヤーは特定のステージで敵を倒し、ゴールを目指します。特にこだわったのは、UnityのAnimtionを利用したジャンプの挙動と、敵を倒したときのエフェクト処理です。",
-                role: "役割: プログラマー（個人制作）",
-                points: [
-                    "オブジェクトプーリングによるパフォーマンス向上を実現。",
-                    "コルーチンを利用したゲームフロー管理を学習。",
-                    "簡単なシェーダー（Shader Graph）を導入し、火山や溶岩の表現を試行錯誤。"
-                ],
-                github: "【作品1のGitHubリポジトリURL】",
-                video: "【作品1のプレイ動画/デモのURL】"
-            },
-            {
-                id: 2,
-                title: "作品タイトル2：2Dパズルゲーム",
-                tech: "Unity, C#, DOTween",
-                duration: "制作期間: 3週間",
-                shortDesc: "ステージクリア型のパズルゲーム。アニメーションとUI/UXに注力。",
-                image: "作品2のイメージ",
-                description: "カラフルなタイルを一面同じ色に揃えるパズルゲームです。ユーザーが直感的に操作できるUI設計と、心地よい操作感のためのアニメーション調整に時間をかけました。",
-                role: "役割: プログラマー（個人制作）",
-                points: [
-                    "パズルロジックを効率的に管理するクラス構造を設計。",
-                    "DOTweenを用いて、ブロック移動やUI遷移のアニメーションをスムーズに実装。",
-                    "Git/GitHubを用いた開発経験。"
-                ],
-                github: "【作品2のGitHubリポジトリURL】",
-                video: ""
-            }
-            // 作品を増やす場合は、この配列にオブジェクトを追加してください
-        ];
-
-        const container = document.getElementById('projects-container');
-        const modal = document.getElementById('projectModal');
-        const closeBtn = document.getElementsByClassName('close-btn')[0];
-
-        // 作品カードの生成
-        function createProjectCards() {
-            // 🔴 既存の要素をクリア（二重生成を防ぐため）
-            container.innerHTML = '';
-            
-            // projects配列からカードを生成・追加 (現在2枚)
-            projects.forEach(project => {
-                const card = document.createElement('div');
-                card.className = 'project-card';
-                card.setAttribute('data-project-id', project.id);
-
-                // HTML構造
-                card.innerHTML = `
-                    <div class="project-image-placeholder">${project.image}</div>
-                    <div class="project-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.tech} | ${project.duration}</p>
-                        <p>概要：${project.shortDesc}</p>
-                    </div>
-                `;
-
-                // クリックイベントリスナーを追加（モーダル表示）
-                card.addEventListener('click', () => openModal(project));
-
-                container.appendChild(card);
-            });
-        }
-
-        // モーダルを開く
-        function openModal(project) {
-            document.getElementById('modal-title').textContent = project.title;
-            document.getElementById('modal-tech').textContent = `使用技術: ${project.tech}`;
-            document.getElementById('modal-role').textContent = project.role;
-            document.getElementById('modal-description').textContent = project.description;
-
-            const pointsList = document.getElementById('modal-points');
-            pointsList.innerHTML = '';
-            project.points.forEach(point => {
-                const li = document.createElement('li');
-                li.textContent = point;
-                pointsList.appendChild(li);
-            });
-
-            const githubLink = document.getElementById('modal-github-link');
-            if (project.github) {
-                githubLink.href = project.github;
-                githubLink.style.display = 'inline-block';
-            } else {
-                githubLink.style.display = 'none';
-            }
-
-            const videoLink = document.getElementById('modal-video-link');
-            if (project.video) {
-                videoLink.innerHTML = `<a href="${project.video}" target="_blank">デモ動画を見る</a>`;
-            } else {
-                videoLink.textContent = '※動画/デモはありません';
-            }
-
-            modal.style.display = 'block'; // モーダルを表示
-        }
-
-        // モーダルを閉じる
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // モーダル外クリックで閉じる
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // ページロード時に実行
-        createProjectCards();
-    </script>
 </body>
 </html>
