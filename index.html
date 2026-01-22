@@ -71,13 +71,6 @@
       font-size: 1.6rem;
     }
 
-    .profile p {
-      margin-bottom: 18px;
-      text-align: left;
-      font-size: 1rem;
-    }
-
-    /* GitHubボタン */
     .btn-github-profile {
       display: inline-flex;
       align-items: center;
@@ -111,28 +104,46 @@
       border: 1px solid #eee;
     }
 
+    /* 画像エリア（拡大機能維持） */
     .work-image-area {
       width: 100%;
       height: 240px;
-      background-color: #eaeff5;
+      background-color: #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #94a3b8;
-      font-size: 0.9rem;
       position: relative;
+      cursor: zoom-in;
+      overflow: hidden;
+      color: #fff;
     }
 
     .work-image-area img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block; 
     }
 
-    .work-content {
-      padding: 30px;
+    /* 全画面表示用（Lightbox） */
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
     }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .work-content { padding: 30px; }
 
     .work h3 {
       font-size: 1.5rem;
@@ -162,11 +173,6 @@
       display: inline-block;
     }
 
-    .work p {
-      margin: 15px 0;
-      font-size: 0.95rem;
-    }
-
     .work ul {
       margin: 0 0 20px 20px;
       padding: 0;
@@ -183,9 +189,7 @@
       font-size: 0.95rem;
     }
 
-    .work-links a:hover {
-      text-decoration: underline;
-    }
+    .work-links a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
@@ -195,12 +199,7 @@
       font-size: 0.85rem;
       margin-top: 60px;
     }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 10px;
-    }
+    footer a { color: #fff; text-decoration: none; margin-left: 10px; }
   </style>
 </head>
 <body>
@@ -213,22 +212,10 @@
   <section>
     <div class="profile">
       <h2>About Me</h2>
-      <p>
-        専門学校に在籍し、Unityを用いたゲーム開発を中心に学習しています。
-        個人制作を通して、ゲームロジックの設計からUI演出、操作感の調整まで一貫して取り組んできました。
-      </p>
-      <p>
-        「遊びやすさ」「分かりやすさ」を意識した設計を大切にし、
-        小規模な作品でも完成度を高めることを目標に制作しています。
-      </p>
-      <p>
-        GitHubを用いたバージョン管理にも取り組んでおり、
-        現在はチーム開発やより高度な最適化手法についても学んでいます。
-      </p>
-      
-      <a href="https://github.com/Taniguchireon-lab" target="_blank" class="btn-github-profile">
-        GitHubアカウントを確認する
-      </a>
+      <p>専門学校に在籍し、Unityを用いたゲーム開発を中心に学習しています。個人制作を通して、ゲームロジックの設計からUI演出、操作感の調整まで一貫して取り組んできました。</p>
+      <p>「遊びやすさ」「分かりやすさ」を意識した設計を大切にし、小規模な作品でも完成度を高めることを目標に制作しています。</p>
+      <p>GitHubを用いたバージョン管理にも取り組んでおり、現在はチーム開発やより高度な最適化手法についても学んでいます。</p>
+      <a href="https://github.com/Taniguchireon-lab" target="_blank" class="btn-github-profile">GitHubアカウントを確認する</a>
     </div>
   </section>
 
@@ -237,20 +224,17 @@
     <div class="works">
 
       <div class="work">
-        <div class="work-image-area">
-          <span>3Dアクションゲーム スクリーンショット</span>
+        <div class="work-image-area" onclick="openLightbox(this)">
+          <img src="path_to_your_image1.jpg" alt="3Dアクションゲーム">
         </div>
         <div class="work-content">
           <h3>3Dアクションゲーム <span class="status-badge">未完成</span></h3>
           <div class="meta">使用技術：Unity / C# / Shader Graph ｜ 制作期間：1ヶ月</div>
-          <p>
-            シンプルな操作で楽しめる3Dアクションゲーム。プレイヤーは特定のステージでボスを倒しクリアを目指します。
-            UnityのAnimationを利用したジャンプの挙動と、攻撃の際のエフェクトに注力しました。
-          </p>
+          <p>シンプルな操作で楽しめる3Dアクションゲーム。UnityのAnimationを利用したジャンプの挙動と、攻撃の際のエフェクトに注力しました。</p>
           <ul>
             <li>オブジェクトプーリングによるパフォーマンス向上を実現</li>
             <li>コルーチンを利用したゲームフロー管理を学習・実装</li>
-            <li>Shader Graphによる火山や溶岩の環境表現の試行錯誤</li>
+            <li>Shader Graphによる火山や溶岩の環境表現</li>
           </ul>
           <div class="work-links">
             <a href="【作品1のGitHubリポジトリURL】" target="_blank">GitHub</a>
@@ -260,19 +244,16 @@
       </div>
 
       <div class="work">
-        <div class="work-image-area">
-          <span>2Dパズルゲーム スクリーンショット</span>
+        <div class="work-image-area" onclick="openLightbox(this)">
+          <img src="path_to_your_image2.jpg" alt="2Dパズルゲーム">
         </div>
         <div class="work-content">
           <h3>2Dパズルゲーム <span class="status-badge">制作中</span></h3>
           <div class="meta">使用技術：Unity / C# / DOTween ｜ 制作期間：1ヶ月</div>
-          <p>
-            タイルを一面同じ色に揃える、ステージクリア型のパズルゲームです。
-            直感的なUI設計と、心地よい操作感（ゲームフィール）のためのアニメーション調整に時間をかけました。
-          </p>
+          <p>タイルを一面同じ色に揃える、ステージクリア型のパズルゲームです。直感的なUI設計と操作感のアニメーション調整に注力しました。</p>
           <ul>
-            <li>パズルロジックを効率的に管理するクラス構造の設計</li>
-            <li>DOTweenを用いたスムーズなブロック移動とUI演出の実装</li>
+            <li>パズルロジックを管理するクラス構造の設計</li>
+            <li>DOTweenを用いたスムーズなブロック移動とUI演出</li>
             <li>Git/GitHubを用いた個人開発のバージョン管理</li>
           </ul>
           <div class="work-links">
@@ -283,16 +264,13 @@
       </div>
 
       <div class="work">
-        <div class="work-image-area">
-          <span>ai-mini-game-1 イメージ</span>
+        <div class="work-image-area" onclick="openLightbox(this)">
+          <img src="ezgif-21f64f6418f68c81.gif" alt="ai-mini-game-1 デモ画面">
         </div>
         <div class="work-content">
           <h3>ai-mini-game-1 <span class="status-badge">完成</span></h3>
           <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
-          <p>
-            画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。
-            基本的なゲームループの理解と、分かりやすい挙動の実装を目的として制作しました。
-          </p>
+          <p>画面をクリックすることでスコアを増やしていく、シンプルなクリック型ミニゲームです。基本的なゲームループの理解を目的に制作しました。</p>
           <ul>
             <li>クリック操作に応じた直感的なスコア更新</li>
             <li>状態管理によるゲーム進行の制御</li>
@@ -306,16 +284,13 @@
       </div>
 
       <div class="work">
-        <div class="work-image-area">
-          <span>ai-mini-game-2 イメージ</span>
+        <div class="work-image-area" onclick="openLightbox(this)">
+          <img src="path_to_your_image4.jpg" alt="ai-mini-game-2 デモ画面">
         </div>
         <div class="work-content">
           <h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
           <div class="meta">使用技術：HTML / JavaScript ｜ 個人制作</div>
-          <p>
-            リズムに合わせてスコアを伸ばし続けられる、ゲームオーバーのない音楽ゲームです。
-            プレイの継続性と、入力判定のロジック構築に焦点を当てて制作しました。
-          </p>
+          <p>リズムに合わせてスコアを伸ばし続けられる、ゲームオーバーのない音楽ゲームです。入力判定のロジック構築に焦点を当てました。</p>
           <ul>
             <li>複数キーの同時入力・判定ロジックの実装</li>
             <li>BGMとノーツの同期調整</li>
@@ -331,13 +306,28 @@
     </div>
   </section>
 
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
   <footer>
-    <p>
-      © 2026 Ren Taniguchi | 
-      <a href="https://github.com/Taniguchireon-lab" target="_blank">GitHub</a>
-    </p>
+    <p>© 2026 Ren Taniguchi | <a href="https://github.com/Taniguchireon-lab" target="_blank">GitHub</a></p>
   </footer>
 
+  <script>
+    function openLightbox(element) {
+      const img = element.querySelector('img');
+      // プレースホルダ画像でない場合のみ拡大
+      if (img && img.src && !img.src.includes('path_to_your_image')) {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').style.display = 'flex';
+      }
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
 
 
 </body></html>
