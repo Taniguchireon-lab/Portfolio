@@ -118,7 +118,7 @@
       color: #fff;
     }
 
-    .work-image-area img {
+    .work-image-area img, .work-image-area video {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
@@ -284,8 +284,8 @@
       </div>
 
       <div class="work">
-        <div class="work-image-area" onclick="openLightbox(this)">
-          <img src="path_to_your_image4.jpg" alt="ai-mini-game-2 デモ画面">
+        <div class="work-image-area">
+          <video src="画面収録aiGame02.mp4" autoplay="" muted="" loop="" playsinline=""></video>
         </div>
         <div class="work-content">
           <h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
@@ -317,7 +317,6 @@
   <script>
     function openLightbox(element) {
       const img = element.querySelector('img');
-      // プレースホルダ画像でない場合のみ拡大
       if (img && img.src && !img.src.includes('path_to_your_image')) {
         document.getElementById('lightbox-img').src = img.src;
         document.getElementById('lightbox').style.display = 'flex';
