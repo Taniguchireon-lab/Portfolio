@@ -1,178 +1,176 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>谷口 蓮音 | Unityゲーム開発ポートフォリオ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谷口 蓮音 | Unityゲーム開発ポートフォリオ</title>
 
-  <style>
-    :root {
-      --main-blue: #2a5298;
-      --bg-light: #f8fafc;
-      --text-main: #333;
-      --text-sub: #666;
-      --status-orange: #e67e22;
-    }
+<style>
+:root {
+--main-blue: #2a5298;
+--bg-light: #f8fafc;
+--text-main: #333;
+--text-sub: #666;
+--status-orange: #e67e22;
+}
 
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-main);
-      line-height: 1.7;
-    }
+body {
+margin: 0;
+font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+background-color: var(--bg-light);
+color: var(--text-main);
+line-height: 1.7;
+}
 
-    header {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
-    }
+header {
+background: linear-gradient(135deg, #1e3c72, #2a5298);
+color: #fff;
+padding: 80px 20px;
+text-align: center;
+}
 
-    section {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+section {
+max-width: 900px;
+margin: 50px auto;
+padding: 0 20px;
+}
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      border-left: 6px solid var(--main-blue);
-      padding-left: 15px;
-      color: var(--main-blue);
-    }
+h2 {
+font-size: 1.8rem;
+margin-bottom: 25px;
+border-left: 6px solid var(--main-blue);
+padding-left: 15px;
+color: var(--main-blue);
+}
 
-    .profile, .work {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-      border: 1px solid #eee;
-    }
+.profile, .work {
+background-color: #fff;
+padding: 30px;
+border-radius: 12px;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+border: 1px solid #eee;
+}
 
-    .works {
-      display: grid;
-      gap: 35px;
-    }
+.works {
+display: grid;
+gap: 35px;
+}
 
-    .work-image-area {
-      width: 100%;
-      height: 240px;
-      background-color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-in;
-      overflow: hidden;
-    }
+.work-image-area {
+width: 100%;
+height: 240px;
+background-color: #000;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: zoom-in;
+overflow: hidden;
+}
 
-    .work-image-area img,
-    .work-image-area video {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
+.work-image-area img,
+.work-image-area video {
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
+}
 
-    #lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
-    }
+#lightbox {
+display: none;
+position: fixed;
+z-index: 1000;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.9);
+align-items: center;
+justify-content: center;
+cursor: zoom-out;
+}
 
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-    }
+#lightbox img {
+max-width: 90%;
+max-height: 90%;
+}
 
-    .meta {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      margin-bottom: 15px;
-    }
+.meta {
+font-size: 0.9rem;
+color: var(--text-sub);
+margin-bottom: 15px;
+}
 
-    .status-badge {
-      background-color: var(--status-orange);
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      border-radius: 4px;
-      margin-left: 10px;
-    }
+.status-badge {
+background-color: var(--status-orange);
+color: #fff;
+font-size: 0.75rem;
+padding: 3px 10px;
+border-radius: 4px;
+margin-left: 10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 40px 10px;
-      background-color: #1e293b;
-      color: #cbd5e1;
-      margin-top: 60px;
-    }
-  </style>
+footer {
+text-align: center;
+padding: 40px 10px;
+background-color: #1e293b;
+color: #cbd5e1;
+margin-top: 60px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>谷口 蓮音</h1>
-  <p>専門学校 ゲームプログラマー志望｜Unityゲーム開発ポートフォリオ</p>
+<h1>谷口 蓮音</h1>
+<p>専門学校 ゲームプログラマー志望｜Unityゲーム開発ポートフォリオ</p>
 </header>
 
 <section>
-  <h2>Works</h2>
+<h2>Works</h2>
 
-  <div class="works">
+<div class="works">
 
-    <!-- ai-mini-game-1 -->
-    <div class="work">
-      <div class="work-image-area" onclick="openLightbox(this)">
-        <img src="assets/images/ai-mini-game-01.gif" alt="ai-mini-game-1 デモ画面">
-      </div>
-      <h3>ai-mini-game-1 <span class="status-badge">完成</span></h3>
-      <div class="meta">HTML / JavaScript</div>
-      <p>クリック型ミニゲーム。</p>
-    </div>
+<div class="work">
+<div class="work-image-area" onclick="openLightbox(this)">
+<img src="assets/images/ai-mini-game-01.gif" alt="ai-mini-game-1 デモ画面">
+</div>
+<h3>ai-mini-game-1 <span class="status-badge">完成</span></h3>
+<div class="meta">HTML / JavaScript</div>
+<p>クリック型ミニゲーム。</p>
+</div>
 
-    <!-- ai-mini-game-2 -->
-    <div class="work">
-      <div class="work-image-area">
-        <video src="assets/videos/ai-game-02-play.mp4" controls muted loop playsinline></video>
-      </div>
-      <h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
-      <div class="meta">HTML / JavaScript</div>
-      <p>リズムゲーム。</p>
-    </div>
+<div class="work">
+<div class="work-image-area">
+<video src="assets/videos/ai-game-02-play.mp4" controls muted loop playsinline></video>
+</div>
+<h3>ai-mini-game-2 <span class="status-badge">完成</span></h3>
+<div class="meta">HTML / JavaScript</div>
+<p>リズムゲーム。</p>
+</div>
 
-  </div>
+</div>
 </section>
 
 <div id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="">
+<img id="lightbox-img" src="">
 </div>
 
 <footer>
-  © 2026 Ren Taniguchi
+© 2026 Ren Taniguchi
 </footer>
 
 <script>
-  function openLightbox(element) {
-    const img = element.querySelector('img');
-    if (img && img.src) {
-      document.getElementById('lightbox-img').src = img.src;
-      document.getElementById('lightbox').style.display = 'flex';
-    }
-  }
+function openLightbox(element) {
+const img = element.querySelector('img');
+if (img && img.src) {
+document.getElementById('lightbox-img').src = img.src;
+document.getElementById('lightbox').style.display = 'flex';
+}
+}
 
-  function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-  }
+function closeLightbox() {
+document.getElementById('lightbox').style.display = 'none';
+}
 </script>
 
 </body>
